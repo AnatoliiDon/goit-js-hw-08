@@ -70,7 +70,7 @@ const createCard = image => {
     <img
       class="gallery-image"
       src="${image.preview}"
-      data-source="${image.description}"
+      data-source="${image.original}"
       alt="${image.description}"
     />
   </a>
@@ -88,13 +88,11 @@ const onImageClick = event => {
   }
  
 
-  const imageDesc = event.target.dataset.source;
-  const imageFind = images.find((image) => imageDesc === image.description);
+  const imageOrig = event.target.dataset.source;
   const modalWindow = basicLightbox.create(`<img
-      src="${imageFind.original}"
-      alt="${imageFind.description}"
+      src="${imageOrig}"
+      alt="${event.target.alt}"
     />`);
-  
   modalWindow.show();
 }
 imageList.addEventListener('click', onImageClick);
