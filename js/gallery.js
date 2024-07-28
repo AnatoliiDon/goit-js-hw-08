@@ -66,7 +66,7 @@ const images = [
 
 const createCard = image => {
   return `<li class="gallery-item">
-  <a class="gallery-link">
+  <a class="gallery-link" href="${image.original}"> 
     <img
       class="gallery-image"
       src="${image.preview}"
@@ -83,6 +83,7 @@ const imageList = document.querySelector('.gallery');
 imageList.innerHTML = imageCard;
 
 const onImageClick = event => {
+  event.preventDefault();
   if (event.target === event.currentTarget) {
     return;
   }
